@@ -21,10 +21,12 @@ Check out the live version of the project here:
 - React.js
 - Firebase Authentication
 - Tailwind CSS
+- DaisyUI
 - React Router
+- Express Js
+- MongoDB 
 
 ## 📸 Screenshots
-*(Add screenshots here if you have any)*
 ![alt text](image.png)
 ![alt text](image-1.png)
 
