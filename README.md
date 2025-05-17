@@ -1,12 +1,31 @@
-# React + Vite
+# Coffee Project ☕️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Firebase-authenticated coffee ordering web application built with modern web technologies. Users can register, login, and enjoy a smooth UI experience.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live version of the project here:  
+👉 [Live Demo](https://coffee-project-auth-fb3c5.web.app)
 
-## Expanding the ESLint configuration
+## 🔐 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User authentication (Email/Password & Social Login)
+- Firebase integration
+- Responsive UI
+- Clean design
+- Protected routes
+- Logout functionality
+
+## 🛠️ Tech Stack
+
+- React.js
+- Firebase Authentication
+- Tailwind CSS
+- React Router
+
+## 📸 Screenshots
+*(Add screenshots here if you have any)*
+![alt text](image.png)
+![alt text](image-1.png)
+
+

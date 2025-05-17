@@ -11,10 +11,10 @@ import {
 } from "react-icons/fa";
 import { GiCoffeeCup } from "react-icons/gi";
 import { AuthContext } from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, setUser, handleLogoutUser } = useContext(AuthContext);
-  console.log(user);
 
   const links = (
     <>
@@ -48,6 +48,12 @@ const Navbar = () => {
     handleLogoutUser()
       .then(() => {
         setUser(null);
+        Swal.fire({
+          title: "Logged out!",
+          text: "You have successfully logged out.",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
       })
       .catch((error) => {
         console.error("Error logging out:", error);

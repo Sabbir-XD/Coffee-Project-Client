@@ -1,45 +1,43 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
+import React from "react";
+import { useLoaderData } from "react-router";
 
 const UpdateCoffee = () => {
-    const coffees = useLoaderData();
-    console.log(coffees);
+  const coffees = useLoaderData();
 
+  // Destructuring the coffee data
+  const { _id, name, barista, supplier, price, category, details, photo } =
+    coffees;
 
-    // Destructuring the coffee data
-    const { _id, name, barista, supplier, price, category, details, photo } = coffees;
+  // Function to handle form submission
+  const handleUpdateCoffee = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const coffeeData = Object.fromEntries(formData.entries());
 
-    // Function to handle form submission
-    const handleUpdateCoffee = e => {
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-        const coffeeData = Object.fromEntries(formData.entries());
-        console.log(coffeeData);
+    // update the coffee data
+    fetch(`https://coffee-project-server-nu.vercel.app/coffees/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(coffeeData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log("updated successfully", data);
+        if (data.modifiedCount) {
+          alert("Coffee Updated Successfully");
+        }
+      });
+  };
 
-        // update the coffee data
-        fetch(`http://localhost:3000/coffees/${_id}`, {
-            method: "PUT",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(coffeeData),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("updated successfully", data);
-                if (data.modifiedCount) {
-                    alert("Coffee Updated Successfully");
-                }
-            });
-
-    }
-
-
-    return (
-        <div className="max-w-4xl mx-auto p-8 bg-base-300 rounded-xl shadow-lg mt-10 mb-12 border border-base-200">
+  return (
+    <div className="max-w-4xl mx-auto p-8 bg-base-300 rounded-xl shadow-lg mt-10 mb-12 border border-base-200">
       <div className="text-center mb-10">
-        <h1 className="text-4xl font-bold mb-3">Update Existing Coffee Details</h1>
+        <h1 className="text-4xl font-bold mb-3">
+          Update Existing Coffee Details
+        </h1>
         <div className="w-20 h-1 bg-[#D2B48C] mx-auto mb-4"></div>
         <p className="text-gray-500 max-w-2xl mx-auto">
           It is a long established fact that a reader will be distracted by the
@@ -131,7 +129,6 @@ const UpdateCoffee = () => {
               className="select select-bordered w-full focus:ring-1  focus:border-transparent"
               defaultValue={category}
               name="category"
-
             >
               <option disabled value="Select category">
                 Select category
@@ -154,7 +151,7 @@ const UpdateCoffee = () => {
             <input
               type="text"
               name="details"
-                defaultValue={details}
+              defaultValue={details}
               placeholder="e.g. Floral notes with citrus finish"
               className="input input-bordered w-full focus:ring-1  focus:border-transparent"
             />
@@ -181,12 +178,12 @@ const UpdateCoffee = () => {
         {/* Add Button */}
         <div className="pt-6">
           <button className="btn bg-[#D2B48C] w-full py-3 text-lg font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
-          Update Coffee Details
+            Update Coffee Details
           </button>
         </div>
       </form>
     </div>
-    );
+  );
 };
 
 export default UpdateCoffee;

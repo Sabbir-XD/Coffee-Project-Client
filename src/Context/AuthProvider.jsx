@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
-    console.log(user);
+    // console.log(user);
 
     // create a USER
     const handleCreateUser = (email, password) => {
@@ -26,10 +26,10 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-                console.log('User is signed in:', user);
+                // console.log('User is signed in:', user);
                 setUser(user);
             } else {
-                console.log('No user is signed in.');
+                // console.log('No user is signed in.');
             }
         });
         return () => unsubscribe();

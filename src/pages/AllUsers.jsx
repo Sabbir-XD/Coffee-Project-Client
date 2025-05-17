@@ -18,7 +18,6 @@ const AllUsers = () => {
   const [activeTooltip, setActiveTooltip] = useState(null);
 
   const handleDelete = (_id) => {
-    console.log("Delete user with id:", _id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -30,7 +29,7 @@ const AllUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Delete the user from the server
-        fetch(`http://localhost:3000/users/${_id}`, {
+        fetch(`https://coffee-project-server-nu.vercel.app/users/${_id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

@@ -18,7 +18,7 @@ const SignIn = () => {
     
         handleLoginUser(email, password)
         .then((result) => {
-            console.log(result.user);
+            // console.log(result.user);
             setUser(result.user);
             navigate("/");
         })

@@ -18,10 +18,9 @@ const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      console.log(result.isConfirmed);
       if (result.isConfirmed) {
         // Delete the coffee from the server
-        fetch(`http://localhost:3000/coffees/${_id}`, {
+        fetch(`https://coffee-project-server-nu.vercel.app/coffees/${_id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",
@@ -30,7 +29,6 @@ const CoffeeCard = ({ coffee, setCoffees, coffees }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("deleted successfully", data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",

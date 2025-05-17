@@ -73,7 +73,7 @@ const SignUp = () => {
     if (validateForm(data)) {
       handleCreateUser(email, password)
         .then((result) => {
-          console.log("User created:", result.user);
+          // console.log("User created:", result.user);
 
           const UserDetails = {
             email,
@@ -83,7 +83,7 @@ const SignUp = () => {
           };
 
           //data set a DB
-          fetch("http://localhost:3000/users", {
+          fetch("https://coffee-project-server-nu.vercel.app/users", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -92,7 +92,7 @@ const SignUp = () => {
           })
             .then((res) => res.json())
             .then((users) => {
-              console.log("User data saved:", users);
+              // console.log("User data saved:", users);
               if (users.insertedId) {
                 // alert("User created successfully");
                 Swal.fire({
@@ -107,7 +107,7 @@ const SignUp = () => {
           navigate("/");
         })
         .catch((error) => {
-          console.error("Error creating user:", error);
+          // console.error("Error creating user:", error);
           setErrors((prev) => ({
             ...prev,
             form:

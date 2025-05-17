@@ -6,14 +6,12 @@ const AddCoffee = () => {
   const handleAddCoffee = (event) => {
     event.preventDefault();
     // Handle form submission logic here
-    console.log("Form submitted");
     const form = event.target;
     const formData = new FormData(form);
     const coffeeData = Object.fromEntries(formData.entries());
-    console.log(coffeeData);
 
     // Example: Send coffeeData to your server or API
-    fetch("http://localhost:3000/coffees", {
+    fetch("https://coffee-project-server-nu.vercel.app/coffees", {
       method: "POST",
       headers: {
         "content-type": "application/json",
